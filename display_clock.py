@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pifacecad
 import datetime
 import time
