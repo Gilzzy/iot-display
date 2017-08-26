@@ -43,7 +43,7 @@ while (count > 0):
 	date = datetime.datetime.now()
 	cad.lcd.cursor_on()
 	cad.lcd.write(date.strftime("Time: %H:%M:%S"))
-	cad.lcd.set_cursor(0, 2)
+	cad.lcd.set_cursor(0, 1)
 	cad.lcd.write(message)
 	cad.lcd.cursor_off()
 	
