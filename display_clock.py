@@ -36,18 +36,22 @@ ser.isOpen()
 ser.flushInput()
 ser.flushOutput()
 
+def lcd_message(x, y, message):
+	cad.lcd.cursor_on()
+	cad.lcd.set_cursor(x, y)
+	cad.lcd.write(message)
+	cad.lcd.cursor_off()
+
+
 while (count > 0):
 	message = str(ser.readline(),'ascii')
 	time.sleep(.1)
 	#ser.flushInput()
 	print(message)
-	cad.lcd.home()
 	date = datetime.datetime.now()
-	cad.lcd.cursor_on()
-	cad.lcd.write(date.strftime("Time: %H:%M:%S"))
-	cad.lcd.set_cursor(0, 1)
-	cad.lcd.write(message)
-	cad.lcd.cursor_off()
+	
+	lcd_message(0, 0, date.strftime("Time: %H:%M:%S"))
+	lcd_message(0, 1, message)
 	
 
 	file.write(str(date)+","+str(message)+"\n")
